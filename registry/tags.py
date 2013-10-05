@@ -22,9 +22,7 @@ logger = logging.getLogger(__name__)
 def get_tags(namespace, repository):
     logger.debug("[get_tags] namespace={0}; repository={1}".format(namespace,
                  repository))
-    logger.debug("[app_route]: " + @app.route)
-    logger.debug("[toolkit.parse_repository]: " + @toolkit.parse_respository_name)
-    logger.debug("[app_route]: " + @app.route)
+    logger.debug("[get_tags]:namespace, repo: " + namespace + ' - ' + respository)
     data = {}
     try:
         for fname in store.list_directory(store.tag_path(namespace,
@@ -47,7 +45,9 @@ def get_tag(namespace, repository, tag):
                  namespace, repository, tag))
     data = None
     try:
+        logger.debug("[get_tag]: " + namespace + ' - ' + respository)
         data = store.get_content(store.tag_path(namespace, repository, tag))
+        logger.debug("[get_tag]:data: " + data)
     except IOError:
         return toolkit.api_error('Tag not found', 404)
     return toolkit.response(data)
