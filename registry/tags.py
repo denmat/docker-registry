@@ -22,6 +22,9 @@ logger = logging.getLogger(__name__)
 def get_tags(namespace, repository):
     logger.debug("[get_tags] namespace={0}; repository={1}".format(namespace,
                  repository))
+    logger.debug("[app_route]: " + @app.route)
+    logger.debug("[toolkit.parse_repository]: " + @toolkit.parse_respository_name)
+    logger.debug("[app_route]: " + @app.route)
     data = {}
     try:
         for fname in store.list_directory(store.tag_path(namespace,
